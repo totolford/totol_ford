@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Profil animé ultime</title>
+<title>totol_ford</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
   * {
@@ -54,65 +54,206 @@
   }
 
   /* Logo principal animé : rotation + pulsation + oscillation + glitch */
-  #main-logo {
+#main-logo {
+    position: relative;
     width: 180px;
-    filter: drop-shadow(0 0 20px #bb33ff);
-    animation: rotatePulseOscillate 8s linear infinite, glitchAnim 3s infinite;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #bb33ff, #7722aa);
+    box-shadow:
+      0 0 40px #bb33ff88,
+      0 0 80px #bb33ff55,
+      0 0 100px #aa33ff77;
+    animation: appearScaleRotate 2s ease-out forwards, rotateLoop 10s linear infinite 2s;
     transform-origin: center center;
+    overflow: visible;
   }
-  @keyframes rotatePulseOscillate {
+  
+  /* PAILLETTES AUTOUR */
+  .sparkle {
+    position: absolute;
+    background: radial-gradient(circle, #fff, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    filter: drop-shadow(0 0 6px #bb33ff);
+    animation: sparkleAnim linear infinite;
+  }
+  
+  /* Générer plusieurs paillettes autour avec différentes tailles et positions */
+  /* Utiliser nth-child pour individualiser chaque paillette */
+  .sparkle:nth-child(1) {
+    width: 8px; height: 8px;
+    top: -15px; left: 60%;
+    animation-duration: 3.5s;
+    animation-delay: 0s;
+  }
+  .sparkle:nth-child(2) {
+    width: 5px; height: 5px;
+    top: 10px; left: -10px;
+    animation-duration: 2.8s;
+    animation-delay: 1s;
+  }
+  .sparkle:nth-child(3) {
+    width: 6px; height: 6px;
+    top: 70%; left: 95%;
+    animation-duration: 3.2s;
+    animation-delay: 2.3s;
+  }
+  .sparkle:nth-child(4) {
+    width: 4px; height: 4px;
+    top: 90%; left: 30%;
+    animation-duration: 4.1s;
+    animation-delay: 3.4s;
+  }
+  .sparkle:nth-child(5) {
+    width: 7px; height: 7px;
+    top: 30%; left: 110%;
+    animation-duration: 2.5s;
+    animation-delay: 4.2s;
+  }
+  .sparkle:nth-child(6) {
+    width: 6px; height: 6px;
+    top: -5px; left: 20%;
+    animation-duration: 3.8s;
+    animation-delay: 5.3s;
+  }
+  .sparkle:nth-child(7) {
+    width: 4px; height: 4px;
+    top: 40%; left: -5%;
+    animation-duration: 4.5s;
+    animation-delay: 6.1s;
+  }
+  .sparkle:nth-child(8) {
+    width: 5px; height: 5px;
+    top: 80%; left: 50%;
+    animation-duration: 3.7s;
+    animation-delay: 7s;
+  }
+  .sparkle:nth-child(9) {
+    width: 6px; height: 6px;
+    top: 5%; left: 80%;
+    animation-duration: 3.9s;
+    animation-delay: 8.2s;
+  }
+  .sparkle:nth-child(10) {
+    width: 7px; height: 7px;
+    top: 60%; left: 10%;
+    animation-duration: 2.7s;
+    animation-delay: 9.3s;
+  }
+
+  /* Animation d'apparition + zoom + rotation initial */
+  @keyframes appearScaleRotate {
     0% {
-      transform: rotate(0deg) scale(1) translateX(0) translateY(0);
-      filter: drop-shadow(0 0 15px #88237b28);
+      transform: scale(4) rotate(0deg);
+      opacity: 0;
+      box-shadow:
+        0 0 150px #ff33ffcc,
+        0 0 80px #bb33ffcc;
+      filter: drop-shadow(0 0 20px #ff33ffcc);
     }
-    25% {
-      transform: rotate(90deg) scale(1.1) translateX(10px) translateY(-10px);
-      filter: drop-shadow(0 0 30px #bb33ff);
-    }
-    50% {
-      transform: rotate(180deg) scale(0.9) translateX(-10px) translateY(10px);
-      filter: drop-shadow(0 0 25px #774488);
-    }
-    75% {
-      transform: rotate(270deg) scale(1.05) translateX(15px) translateY(15px);
-      filter: drop-shadow(0 0 35px #a452e5);
+    60% {
+      opacity: 1;
+      transform: scale(1.1) rotate(180deg);
+      box-shadow:
+        0 0 80px #bb33ffcc,
+        0 0 60px #aa22ffcc;
+      filter: drop-shadow(0 0 12px #bb33ffcc);
     }
     100% {
-      transform: rotate(360deg) scale(1) translateX(0) translateY(0);
-      filter: drop-shadow(0 0 20px #bb33ff);
-    }
-  }
-  @keyframes glitchAnim {
-    0% {
-      filter: drop-shadow(0 0 20px #bb33ff);
-      transform: translateX(0);
-    }
-    10% {
-      filter: drop-shadow(0 0 25px #ff3399);
-      transform: translateX(-3px);
-    }
-    20% {
-      filter: drop-shadow(0 0 20px #bb33ff);
-      transform: translateX(3px);
-    }
-    30% {
-      filter: drop-shadow(0 0 25px #d855ff);
-      transform: translateX(-2px);
-    }
-    40% {
-      filter: drop-shadow(0 0 20px #bb33ff);
-      transform: translateX(2px);
-    }
-    50% {
-      filter: drop-shadow(0 0 30px #e58eff);
-      transform: translateX(0);
-    }
-    100% {
-      filter: drop-shadow(0 0 20px #bb33ff);
-      transform: translateX(0);
+      transform: scale(1) rotate(360deg);
+      opacity: 1;
+      box-shadow:
+        0 0 40px #bb33ff88,
+        0 0 80px #bb33ff55,
+        0 0 100px #aa33ff77;
+      filter: drop-shadow(0 0 8px #bb33ffcc);
     }
   }
 
+  /* Rotation infinie */
+  @keyframes rotateLoop {
+    0% {
+      transform: rotate(360deg);
+      filter: drop-shadow(0 0 8px #bb33ffcc);
+      box-shadow:
+        0 0 40px #bb33ff88,
+        0 0 80px #bb33ff55,
+        0 0 100px #aa33ff77;
+    }
+    50% {
+      filter: drop-shadow(0 0 25px #ff66ffcc);
+      box-shadow:
+        0 0 50px #ff66ffcc,
+        0 0 100px #ff33ffcc,
+        0 0 120px #ff00ffcc;
+      transform: rotate(540deg) scale(1.05);
+    }
+    100% {
+      transform: rotate(720deg);
+      filter: drop-shadow(0 0 8px #bb33ffcc);
+      box-shadow:
+        0 0 40px #bb33ff88,
+        0 0 80px #bb33ff55,
+        0 0 100px #aa33ff77;
+    }
+  }
+
+  /* Animation des paillettes */
+  @keyframes sparkleAnim {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0.6) rotate(0deg);
+      filter: drop-shadow(0 0 3px #fff);
+      box-shadow: 0 0 5px 2px #ffccff;
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2) rotate(360deg);
+      filter: drop-shadow(0 0 15px #ff99ff);
+      box-shadow: 0 0 15px 6px #ff99ff;
+    }
+  }
+
+  /* Petits éclats en plus sur le logo */
+  #main-logo::before,
+  #main-logo::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: drop-shadow(0 0 6px #bb33ff);
+  }
+
+  #main-logo::before {
+    top: 10px;
+    left: 140px;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, #fff, transparent 80%);
+    animation: sparkleSmall 4s infinite ease-in-out;
+  }
+  #main-logo::after {
+    top: 140px;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #fff, transparent 80%);
+    animation: sparkleSmall 3s 2s infinite ease-in-out;
+  }
+
+  @keyframes sparkleSmall {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(0.8);
+      filter: drop-shadow(0 0 5px #bb33ff);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 15px #ff66ff);
+    }
+  }
   /* Zone des applis (logos + liens) */
   .apps-container {
     display: flex;
@@ -190,27 +331,51 @@
 </style>
 </head>
 <body>
-
   <canvas id="bg-canvas"></canvas>
 
   <div class="container">
-    <img src="img/logo.png" id="main-logo" alt="Logo principal" />
-    <div id="welcome-text">Bienvenue sur la page de totol_ford</div>
-    <div class="apps-container">
-      <a class="app-link" href="https://discord.com" target="_blank" title="Discord">
-        <img src="img/discorde.png" alt="Discord" />
-      </a>
-      <a class="app-link" href="https://tiktok.com" target="_blank" title="TikTok">
+  <img src="img/logo.png" id="main-logo" alt="Logo principal" />
+  <div id="welcome-text">Bienvenue sur la page de totol_ford</div>
+  <div class="apps-container">
+      <a class="app-link" href="https://www.tiktok.com/@totol_ford?is_from_webapp=1&sender_device=pc" target="_blank" title="TikTok">
         <img src="img/tiktok.png" alt="TikTok" />
       </a>
-      <a class="app-link" href="https://thunderstore.io" target="_blank" title="Thunderstore">
-        <img src="img/thunderstore.png" alt="Thunderstore" />
+      <a class="app-link" href="https://discord.gg/vbauxphP" target="_blank" title="Discord">
+        <img src="img/discorde.png" alt="Discord" />
       </a>
-      <a class="app-link" href="https://roblox.com" target="_blank" title="Roblox">
+      <a class="app-link" href="https://www.reddit.com/user/Slayrox_/" target="_blank" title="Reddit">
+        <img src="img/reddit.png" alt="Reddit" />
+      </a>
+      <a class="app-link" href="https://www.roblox.com/user.aspx?username=totol_ford" target="_blank" title="Roblox">
         <img src="img/roblox.png" alt="Roblox" />
+      </a>
+      <a class="app-link" href="https://scratch.mit.edu/users/totol_ford" target="_blank" title="Scratch">
+        <img src="img/scratch.png" alt="Scratch" />
+      </a>
+      <a class="app-link" href="https://sketchfab.com/totol_ford" target="_blank" title="Sketchfab">
+        <img src="img/sketchfab.png" alt="Sketchfab" />
+      </a>
+      <a class="app-link" href="https://ch.tetr.io/u/totol_ford" target="_blank" title="TETR.IO">
+       <img src="img/tetrio.png" alt="TETR.IO" />
+      </a>
+      <a class="app-link" href="https://tenor.com/users/totol_ford" target="_blank" title="Tenor">
+        <img src="img/tenor.png" alt="Tenor" />
+      </a>
+     <a class="app-link" href="https://x.com/totol_ford" target="_blank" title="X (Twitter)">
+        <img src="img/twitter.png" alt="X" />
+      </a>
+      <a class="app-link" href="https://www.youtube.com/@totol_ford" target="_blank" title="YouTube">
+        <img src="img/youtube.png" alt="YouTube" />
+      </a>
+      <a class="app-link" href="https://paypal.me/totolford" target="_blank" title="PayPal">
+        <img src="img/paypal.png" alt="PayPal" />
+      </a>
+      <a class="app-link" href="https://www.instagram.com/totol_ford/" target="_blank" title="Instagram">
+        <img src="img/instagram.png" alt="Instagram" />
       </a>
     </div>
   </div>
+
 
   <div id="footer-text">Made with totol_ford</div>
 
@@ -345,6 +510,8 @@
   window.addEventListener('load', () => {
     audio.play().then(() => setPauseIcon()).catch(() => setPlayIcon());
   });
+
+  
 </script>
 </body>
 </html>
